@@ -2,7 +2,7 @@
  * @Description: In User Settings Editcr
  * @Author: your name
  * @Date: 2019-08-15 15:41:12
- * @LastEditTime: 2019-08-15 16:47:00
+ * @LastEditTime: 2019-08-16 16:14:44
  * @LastEditors: Please set LastEditors
  -->
 <!DOCTYPE html>
@@ -142,7 +142,7 @@
     </script>
 
     <script>
-    //入口函数
+        //入口函数
         // $('.icon-tuichu').parent().on('click',function(e){
         //     e.preventDefault();
         //     if(confirm('確定要退出嗎')){
@@ -157,24 +157,28 @@
         //         })
         //     }
         // })
-        $('.icon-tuichu').parent().on('click',function(e){
-            e.preventDefault();
-            
-            $('#myModal').modal({
-                keyboard:true
-            })
-            $('.btn-primary').on('click',function(){
-                $.ajax({
-                    type:'post',
-                    url:'http://localhost:8080/admin/user/logout',
-                    success:function(backData){
-                        if(backData.code == 200){
-                            window.location.href = './login.html';
+        $(function () {
+            $('.icon-tuichu').parent().on('click', function (e) {
+                e.preventDefault();
+
+                $('#myModal').modal({
+                    keyboard: true
+                })
+                $('.btn-primary').on('click', function () {
+                    $.ajax({
+                        type: 'post',
+                        url: 'http://localhost:8080/admin/user/logout',
+                        success: function (backData) {
+                            if (backData.code == 200) {
+                                window.location.href = './login.html';
+                            }
                         }
-                    }
+                    })
                 })
             })
+            
         })
+
     </script>
 </body>
 
